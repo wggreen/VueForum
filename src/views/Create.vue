@@ -70,7 +70,6 @@ export default {
       this.showMeme = true;
     },
     async saveMeme() {
-      console.log("meme saved");
       await db.collection("memes").add({
         topText: this.topText,
         bottomText: this.bottomText,
