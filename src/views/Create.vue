@@ -53,7 +53,7 @@
 
 <script>
 import Meme from "../components/Meme.vue";
-import { db } from "../firebase.js";
+import { db, auth } from "../firebase";
 
 export default {
   components: { Meme },
@@ -75,7 +75,9 @@ export default {
         bottomText: this.bottomText,
         imageURL: this.imageURL,
         normalized: `${this.topText.toUpperCase()} ${this.bottomText.toUpperCase()}`,
+        userId: auth.currentUser.uid,
       });
+
       this.$router.push("/feed");
     },
   },
